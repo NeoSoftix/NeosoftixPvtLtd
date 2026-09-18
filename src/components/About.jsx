@@ -14,7 +14,7 @@ const highlights = [
 
 export default function About() {
   return (
-    <section className="relative w-full overflow-hidden bg-white py-20 lg:py-32">
+    <section id="about" className="relative w-full overflow-hidden bg-white py-20 lg:py-32">
       <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-100/60 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-sky-100/60 blur-3xl" />
 

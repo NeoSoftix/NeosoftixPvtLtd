@@ -1,20 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "How it Works", href: "#our-process" },
-  { label: "Resources", href: "#resources" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Our Work", href: "/#portfolio" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial state
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 w-full px-6 py-6 md:px-10 lg:px-16">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out pointer-events-auto ${
+        scrolled
+          ? "bg-[#050b16]/95 backdrop-blur-xl border-b border-blue-900/40 shadow-2xl py-4 px-6 md:px-10 lg:px-16"
+          : "bg-transparent py-6 px-6 md:px-10 lg:px-16"
+      }`}
+    >
       <div className="mx-auto flex w-full items-center justify-between 2xl:max-w-[1440px]">
         <a href="#" className="flex items-center shrink-0">
           <Image
@@ -47,7 +70,7 @@ export default function Header() {
             Login
           </a>
           <a
-            href="#get-started"
+            href="#contact"
             className="group flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#050b16] transition-transform hover:scale-[1.03]"
           >
             Get Started
@@ -116,7 +139,7 @@ export default function Header() {
               Login
             </a>
             <a
-              href="#get-started"
+              href="#contact"
               onClick={() => setMenuOpen(false)}
               className="flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#050b16]"
             >

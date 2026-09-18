@@ -168,7 +168,7 @@ export default function Services() {
   }, [updateLines]);
 
   return (
-    <section className="relative w-full bg-[#f4f3ef] py-20 lg:py-32 overflow-hidden">
+    <section id="services" className="relative w-full bg-[#f4f3ef] py-20 lg:py-32 overflow-hidden">
       <div
         ref={containerRef}
         className="relative w-full max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-16 xl:px-20"
