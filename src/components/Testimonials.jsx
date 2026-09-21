@@ -151,7 +151,7 @@ export default function Testimonials() {
             highlightWords={["Industry", "Leaders"]}
             fontClass={playfair.className}
             dark={true}
-            className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight justify-center"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight justify-center"
           />
 
           <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-400 max-w-2xl mx-auto font-normal">

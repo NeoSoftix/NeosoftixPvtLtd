@@ -31,7 +31,7 @@ export default function About() {
           </div>
 
           <h2
-            className={`${playfair.className} mt-5 text-4xl font-extrabold leading-[1.15] tracking-tight text-[#0f1729] sm:text-5xl lg:text-6xl`}
+            className={`${playfair.className} mt-5 text-3xl font-extrabold leading-[1.15] tracking-tight text-[#0f1729] sm:text-4xl md:text-5xl lg:text-6xl`}
           >
             Good Ideas
             <br />

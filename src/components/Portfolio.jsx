@@ -243,7 +243,7 @@ export default function Portfolio() {
               text="Explore Our Work"
               highlightWords={["Our", "Work"]}
               fontClass={playfair.className}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0f1729] leading-tight tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0f1729] leading-tight tracking-tight"
             />
 
             <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-600 font-normal">

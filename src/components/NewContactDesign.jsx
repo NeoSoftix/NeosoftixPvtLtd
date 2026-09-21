@@ -107,7 +107,7 @@ export default function NewContactDesign() {
                 highlightWords={["Something", "Great"]}
                 fontClass={playfair.className}
                 dark={true}
-                className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.1]"
               />
 
               {/* Hand-drawn Doodle Arrow Graphic */}

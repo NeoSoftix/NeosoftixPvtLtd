@@ -98,7 +98,7 @@ export default function TrustedBy() {
               text="Trusted by Great Businesses"
               highlightWords={["Great", "Businesses"]}
               fontClass={playfair.className}
-              className="text-4xl font-extrabold leading-[1.1] tracking-tight text-[#0f1729] sm:text-5xl lg:text-6xl"
+              className="text-3xl font-extrabold leading-[1.1] tracking-tight text-[#0f1729] sm:text-4xl md:text-5xl lg:text-6xl"
             />
           </div>
 

@@ -27,14 +27,6 @@ const FlagGermany = ({ className = "w-5 h-5" }) => (
   </svg>
 );
 
-const FlagCanada = ({ className = "w-5 h-5" }) => (
-  <svg className={`${className} rounded-full overflow-hidden shrink-0 shadow-sm border border-slate-200`} viewBox="0 0 640 480">
-    <path fill="#ff0000" d="M0 0h160v480H0zm480 0h160v480H480z"/>
-    <path fill="#ffffff" d="M160 0h320v480H160z"/>
-    <path fill="#ff0000" d="M320 80l24 48 48-16-16 48 48 24-48 24 16 48-48-16-24 48-24-48-48 16 16-48-48-24 48-24-16-48 48 16z"/>
-  </svg>
-);
-
 const FlagEurope = ({ className = "w-5 h-5" }) => (
   <svg className={`${className} rounded-full overflow-hidden shrink-0 shadow-sm border border-slate-200`} viewBox="0 0 640 480">
     <path fill="#003399" d="M0 0h640v480H0z"/>
@@ -66,13 +58,6 @@ const regions = [
     title: "GERMANY",
   },
   {
-    id: "canada",
-    code: "CANADA",
-    name: "CANADA",
-    FlagIcon: FlagCanada,
-    title: "CANADA",
-  },
-  {
     id: "europe",
     code: "EUROPE",
     name: "EUROPE",
@@ -82,7 +67,7 @@ const regions = [
 ];
 
 export default function Contact() {
-  const [selectedRegion, setSelectedRegion] = useState(regions[3]); // EUROPE selected by default
+  const [selectedRegion, setSelectedRegion] = useState(regions[2]); // EUROPE selected by default
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",

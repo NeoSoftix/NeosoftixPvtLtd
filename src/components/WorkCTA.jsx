@@ -28,7 +28,7 @@ export default function WorkCTA() {
             LET&apos;S BUILD SOMETHING GREAT
           </span>
 
-          <h2 className={`${playfair.className} text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight max-w-3xl mx-auto`}>
+          <h2 className={`${playfair.className} text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight max-w-3xl mx-auto`}>
             Have a Project in Mind?
           </h2>
 

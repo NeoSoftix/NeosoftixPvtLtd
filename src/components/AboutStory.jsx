@@ -184,7 +184,7 @@ export default function AboutStory() {
             <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
               OUR GUIDING PRINCIPLES
             </span>
-            <h2 className={`${playfair.className} text-3xl sm:text-5xl font-extrabold text-white mt-3`}>
+            <h2 className={`${playfair.className} text-2xl sm:text-4xl md:text-5xl font-extrabold text-white mt-3`}>
               What Drives NeoSoftix Forward
             </h2>
             <p className="mt-4 text-sm sm:text-base text-slate-300">

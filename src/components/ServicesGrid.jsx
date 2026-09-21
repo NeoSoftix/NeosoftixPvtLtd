@@ -131,7 +131,7 @@ export default function ServicesGrid({ activeCategory }) {
           <span className="text-xs font-bold tracking-widest text-blue-600 uppercase">
             3D DIGITAL CAPABILITIES
           </span>
-          <h2 className={`${playfair.className} text-3xl sm:text-5xl font-extrabold text-[#0f1729] mt-3`}>
+          <h2 className={`${playfair.className} text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#0f1729] mt-3`}>
             Engineering Products That Scale
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 font-normal">

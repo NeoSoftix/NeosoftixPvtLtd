@@ -150,7 +150,7 @@ export default function OurProcess() {
                 text="Our Process"
                 highlightWords={["Process"]}
                 fontClass={playfair.className}
-                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0f1729] leading-[1.12] tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0f1729] leading-[1.12] tracking-tight"
               />
 
               {/* Subtitle / Description */}

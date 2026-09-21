@@ -53,7 +53,7 @@ export default function SubServiceTemplate({ data }) {
               highlightWords={data.title.split(" ").slice(-2)}
               fontClass={playfair.className}
               dark={true}
-              className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight justify-center text-center"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-[1.1] tracking-tight justify-center text-center"
             />
           </div>
 
