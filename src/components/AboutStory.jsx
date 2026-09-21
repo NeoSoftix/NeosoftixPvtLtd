@@ -100,7 +100,7 @@ export default function AboutStory() {
               <div className="relative mx-auto aspect-[4/3] w-full max-w-xl rounded-3xl bg-gradient-to-br from-blue-500/20 via-sky-300/30 to-transparent p-2 shadow-2xl">
                 <div className="relative h-full w-full overflow-hidden rounded-[22px] bg-white ring-1 ring-slate-900/10 shadow-inner">
                   <Image
-                    src="/aboutlright.png"
+                    src="/aboutlright.webp"
                     alt="NeoSoftix Team Engineering Digital Solutions"
                     fill
                     sizes="(max-width: 1024px) 100vw, 600px"

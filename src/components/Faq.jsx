@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Playfair_Display, Caveat } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
@@ -181,8 +182,17 @@ export default function Faq() {
   return (
     <section
       id="faq"
-      className="relative w-full bg-[#f4f8fd] bg-[url('/faqbg.png')] bg-cover bg-center bg-no-repeat py-20 lg:py-32 overflow-hidden"
+      className="relative w-full bg-[#f4f8fd] py-20 lg:py-32 overflow-hidden"
     >
+      <Image
+        src="/faqbg.webp"
+        alt=""
+        fill
+        sizes="100vw"
+        loading="lazy"
+        className="object-cover object-center"
+      />
+
       <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10 lg:px-16 xl:px-20">
         
         {/* Header Container */}

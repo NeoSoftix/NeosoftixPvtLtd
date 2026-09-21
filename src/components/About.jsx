@@ -98,7 +98,7 @@ export default function About() {
 
           <div className="relative h-full w-full overflow-hidden rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.25)] ring-1 ring-black/5">
             <Image
-              src="/aboutlright.png"
+              src="/aboutlright.webp"
               alt="Neosoftix team collaborating"
               fill
               sizes="(max-width: 1024px) 90vw, 640px"
