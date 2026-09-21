@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useActionState } from "react";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
+import Button from "./Button";
+import { submitHomeContactForm } from "@/app/actions/contact";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -68,7 +70,6 @@ const regions = [
 
 export default function Contact() {
   const [selectedRegion, setSelectedRegion] = useState(regions[2]); // EUROPE selected by default
-  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     email: "",
@@ -76,28 +77,14 @@ export default function Contact() {
     website: "",
     message: "",
   });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        firstName: "",
-        email: "",
-        company: "",
-        website: "",
-        message: "",
-      });
-    }, 4000);
-  };
+  const [state, formAction, pending] = useActionState(submitHomeContactForm, undefined);
 
   const SelectedFlag = selectedRegion.FlagIcon;
 
   return (
     <section
       id="contact"
-      className="relative w-full bg-white py-20 lg:py-32 overflow-hidden"
+      className="relative w-full bg-white py-16 lg:py-24 overflow-hidden"
     >
       {/* Background Decorative Blur Orbs */}
       <div className="pointer-events-none absolute -left-20 top-1/4 h-96 w-96 rounded-full bg-blue-100/50 blur-3xl" />
@@ -177,27 +164,9 @@ export default function Contact() {
 
             {/* Left Side CTA Button */}
             <div className="mt-8">
-              <a
-                href="#contact-form"
-                className="inline-flex items-center gap-2.5 rounded-full bg-[#050b16] px-8 py-4 text-sm sm:text-base font-bold text-white shadow-lg hover:bg-blue-600 transition-all duration-300 hover:scale-[1.03]"
-              >
+              <Button href="#contact-form" variant="dark" size="lg" showArrow className="text-sm sm:text-base">
                 Contact Us
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  className="transition-transform group-hover:translate-x-1"
-                >
-                  <path
-                    d="M2.5 8H13.5M13.5 8L8.5 3M13.5 8L8.5 13"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
+              </Button>
             </div>
           </motion.div>
 
@@ -224,13 +193,15 @@ export default function Contact() {
               </h3>
 
               {/* Form Fields */}
-              <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-                
+              <form action={formAction} className="mt-6 space-y-4">
+                <input type="hidden" name="region" value={selectedRegion.name} />
+
                 {/* 2 Grid Inputs */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <input
                       type="text"
+                      name="firstName"
                       required
                       placeholder="First Name"
                       value={formData.firstName}
@@ -244,6 +215,7 @@ export default function Contact() {
                   <div>
                     <input
                       type="email"
+                      name="email"
                       required
                       placeholder="Email Address"
                       value={formData.email}
@@ -259,6 +231,7 @@ export default function Contact() {
                   <div>
                     <input
                       type="text"
+                      name="company"
                       placeholder="Company"
                       value={formData.company}
                       onChange={(e) =>
@@ -271,6 +244,7 @@ export default function Contact() {
                   <div>
                     <input
                       type="text"
+                      name="website"
                       placeholder="Website"
                       value={formData.website}
                       onChange={(e) =>
@@ -285,6 +259,7 @@ export default function Contact() {
                 <div>
                   <textarea
                     rows={4}
+                    name="message"
                     required
                     placeholder="What do you need help with?*"
                     value={formData.message}
@@ -298,20 +273,29 @@ export default function Contact() {
                 {/* Privacy & Response Disclaimer */}
                 <p className="text-xs leading-relaxed text-slate-500 pt-1 font-normal">
                   We reply within 1 business day. By submitting, you agree to our{" "}
-                  <a href="#privacy" className="underline hover:text-blue-600">
+                  <a href="/privacy-policy" className="underline hover:text-blue-600">
                     Privacy Policy
                   </a>
                   .
                 </p>
 
+                {state?.error && (
+                  <p className="text-sm text-red-600" role="alert">
+                    {state.error}
+                  </p>
+                )}
+
                 {/* Submit Button */}
                 <div className="pt-2">
-                  <button
+                  <Button
                     type="submit"
-                    className="w-full sm:w-auto rounded-full bg-[#050b16] px-8 py-3.5 text-sm font-bold text-white shadow-md hover:bg-blue-600 transition-all duration-300 hover:scale-[1.02]"
+                    variant="dark"
+                    size="md"
+                    disabled={pending}
+                    className="w-full sm:w-auto text-sm"
                   >
-                    {submitted ? "Message Sent! ✓" : "Send Message"}
-                  </button>
+                    {pending ? "Sending..." : "Send Message"}
+                  </Button>
                 </div>
               </form>
             </div>

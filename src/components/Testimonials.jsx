@@ -13,37 +13,23 @@ const topTestimonials = [
   {
     stars: 5,
     quote:
-      "Shawn and the team at NeoSoftix have become an extension of our business. From SEO and paid advertising to website strategy and technical improvements, they consistently bring ideas that help us grow. Their hands-on approach and commitment to results have made them a valuable partner for Webb's Water Gardens.",
-    name: "Kevin Webb",
-    title: "President, Webb's Water Gardens",
+      "Neosoftix completely transformed our online presence. Their team delivered a high-quality website on time, and the results exceeded our expectations. Highly recommended!",
+    name: "Zoe Mantis",
+    title: "Director",
   },
   {
     stars: 5,
     quote:
-      "NeoSoftix has been a trusted marketing partner for Baltimore Windustrial. Shawn brings a rare combination of strategic thinking, technical expertise, and business understanding that allows him to quickly identify opportunities and execute solutions. Whether it's improving our online presence or optimizing our website, his team delivers professional results.",
-    name: "Vince Brown",
-    title: "President, Baltimore Windustrial",
+      "Professional, responsive, and result-driven. The team at Neosoftix helped us increase our website traffic and generate real leads within a short time.",
+    name: "John Doe",
+    title: "Managing Director",
   },
   {
     stars: 5,
     quote:
-      "Working with NeoSoftix has helped us elevate our online presence and better position our brand in a highly competitive luxury travel market. Shawn understands how to balance technical SEO, user experience, and content strategy while keeping the customer journey front and center. His recommendations are thoughtful and data-driven.",
-    name: "Angela Valenti",
-    title: "Managing Director, Ourisman Travel",
-  },
-  {
-    stars: 5,
-    quote:
-      "As a healthcare practice, we needed a marketing partner who understood the importance of trust, professionalism, and patient experience. NeoSoftix helped us strengthen our digital presence with clear strategy, practical recommendations, and responsive support. We appreciate having a partner we can rely on.",
-    name: "Dr. Mike Smith",
-    title: "Owner, The VIP PT",
-  },
-  {
-    stars: 5,
-    quote:
-      "The team at NeoSoftix turned our outdated web platform into a modern, high-converting digital engine. Our lead generation skyrocketed within 60 days of launch, and their ongoing optimization keeps us ahead of competitors.",
-    name: "Sarah Jenkins",
-    title: "Founder, CleanTime Services",
+      "Working with Neosoftix was a great experience. Their design and development skills are top-notch, and they truly understand business needs.",
+    name: "Don Joe",
+    title: "Marketing Head",
   },
 ];
 
@@ -51,37 +37,16 @@ const bottomTestimonials = [
   {
     stars: 5,
     quote:
-      "Phenomenal cloud architecture and custom software development. NeoSoftix delivered our enterprise platform ahead of schedule with flawless reliability, scalability, and security built in from day one.",
-    name: "Marcus Brody",
-    title: "CTO, Malo-Tech Germany",
+      "Our sales improved significantly after launching our new website. Neosoftix delivered exactly what we needed with excellent support.",
+    name: "Karan Singh",
+    title: "Additional Director",
   },
   {
     stars: 5,
     quote:
-      "Their data-driven digital strategies transformed our acquisition pipeline completely. Working with NeoSoftix was one of the best ROI decisions our board made this year. Exceptional communication throughout!",
-    name: "Elena Rostova",
-    title: "Director of Growth, SuperSure Logistics",
-  },
-  {
-    stars: 5,
-    quote:
-      "From prototype to production, the technical lead assigned to our project was outstanding. Seamless communication, top-tier engineering quality, and great ongoing post-launch support.",
-    name: "David Miller",
-    title: "Operations Lead, ParkEase Solutions",
-  },
-  {
-    stars: 5,
-    quote:
-      "NeoSoftix rebuilt our multi-location restaurant ordering platform. Page speeds are blazing fast and our customer feedback has been overwhelmingly positive across all mobile and web channels.",
-    name: "Rohit Sharma",
-    title: "Founder, Angithi Hospitality Group",
-  },
-  {
-    stars: 5,
-    quote:
-      "Highly creative, deeply strategic, and incredibly responsive. The continuous optimization team at NeoSoftix keeps our digital marketing campaigns performing at peak efficiency month after month.",
-    name: "Amanda Croft",
-    title: "VP of Marketing, NextGen Retail",
+      "Neosoftix delivered exactly what we needed. Their attention to detail and creative approach made our website stand out from competitors.",
+    name: "Priya Mehta",
+    title: "HR",
   },
 ];
 
@@ -133,30 +98,31 @@ export default function Testimonials() {
   const row2Items = [...bottomTestimonials, ...bottomTestimonials, ...bottomTestimonials];
 
   return (
-    <section className="relative w-full bg-[#050b16] py-20 lg:py-32 overflow-hidden border-t border-white/5">
+    <section className="relative w-full bg-[#050b16] py-16 lg:py-24 overflow-hidden border-t border-white/5">
       {/* Subtle background decorative glows */}
       <div className="pointer-events-none absolute left-1/4 top-0 h-96 w-96 rounded-full bg-sky-600/10 blur-3xl" />
       <div className="pointer-events-none absolute right-1/4 bottom-0 h-96 w-96 rounded-full bg-blue-600/10 blur-3xl" />
 
       {/* Header Container */}
-      <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10 lg:px-16 xl:px-20 text-center mb-12 sm:mb-16">
+      <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10 lg:px-16 xl:px-20 text-center mb-8 sm:mb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold tracking-widest text-sky-400 uppercase mb-3">
+            <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
+            Our Testimonials
+          </div>
+
           <AnimatedHeading
-            text="Trusted by Industry Leaders"
-            highlightWords={["Industry", "Leaders"]}
+            text="Hear From Those Who've Worked With Us"
+            highlightWords={["Worked"]}
             fontClass={playfair.className}
             dark={true}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight justify-center"
           />
-
-          <p className="mt-4 text-sm sm:text-base leading-relaxed text-slate-400 max-w-2xl mx-auto font-normal">
-            Discover how NeoSoftix empowers businesses with tailored digital strategies, engineering excellence, and measurable growth.
-          </p>
         </motion.div>
       </div>
 

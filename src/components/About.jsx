@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
+import Button from "./Button";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
 
@@ -14,7 +15,7 @@ const highlights = [
 
 export default function About() {
   return (
-    <section id="about" className="relative w-full overflow-hidden bg-white py-20 lg:py-32">
+    <section id="about" className="relative w-full overflow-hidden bg-white py-16 lg:py-24">
       <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-100/60 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-sky-100/60 blur-3xl" />
 
@@ -64,27 +65,9 @@ export default function About() {
             ))}
           </ul>
 
-          <a
-            href="#learn-more"
-            className="group mt-10 inline-flex items-center gap-2 rounded-full bg-[#0f1729] px-6 py-3.5 text-sm font-semibold text-white transition-transform hover:scale-[1.03]"
-          >
+          <Button href="#learn-more" variant="dark" size="md" showArrow className="mt-10 text-sm">
             Learn More About Us
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              className="transition-transform group-hover:translate-x-0.5"
-            >
-              <path
-                d="M1 7H13M13 7L7.5 1.5M13 7L7.5 12.5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
+          </Button>
         </motion.div>
 
         <motion.div

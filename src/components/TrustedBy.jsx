@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
+import Button from "./Button";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
 
@@ -128,27 +129,9 @@ export default function TrustedBy() {
             ))}
           </div>
 
-          <a
-            href="#partners"
-            className="group mt-10 inline-flex items-center gap-2 rounded-full bg-[#050b16] px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-blue-600 hover:scale-[1.03]"
-          >
+          <Button href="#partners" variant="dark" size="md" showArrow className="mt-10 text-sm font-semibold">
             Our Partners
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              className="transition-transform group-hover:translate-x-0.5"
-            >
-              <path
-                d="M1 7H13M13 7L7.5 1.5M13 7L7.5 12.5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
+          </Button>
         </motion.div>
 
         <motion.div

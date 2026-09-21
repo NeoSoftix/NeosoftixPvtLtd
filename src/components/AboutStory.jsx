@@ -80,7 +80,7 @@ export default function AboutStory() {
     <div className="relative w-full bg-[#f8fafc]">
       
       {/* SECTION 1: MISSION & VISION */}
-      <section id="mission" className="relative w-full py-20 lg:py-32 overflow-hidden">
+      <section id="mission" className="relative w-full py-16 lg:py-24 overflow-hidden">
         {/* Subtle Background Lighting */}
         <div className="pointer-events-none absolute -left-24 top-10 h-96 w-96 rounded-full bg-blue-100/50 blur-3xl" />
         <div className="pointer-events-none absolute -right-24 bottom-0 h-96 w-96 rounded-full bg-sky-100/50 blur-3xl" />
@@ -174,13 +174,13 @@ export default function AboutStory() {
       </section>
 
       {/* SECTION 2: CORE VALUES & WHY CHOOSE US */}
-      <section className="relative w-full bg-[#050b16] py-20 lg:py-32 text-white overflow-hidden">
+      <section className="relative w-full bg-[#050b16] py-16 lg:py-24 text-white overflow-hidden">
         {/* Ambient Dark Glows */}
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/15 blur-[140px]" />
         
         <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10 lg:px-16 xl:px-20">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
               OUR GUIDING PRINCIPLES
             </span>

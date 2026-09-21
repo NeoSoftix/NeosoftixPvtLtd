@@ -11,10 +11,51 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://neosoftix.com";
+
 export const metadata = {
-  title: "NeoSoftix — Ideas to Impact",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "NeoSoftix — Ideas to Impact",
+    template: "%s",
+  },
   description:
-    "All-in-one digital growth platform to create, manage, and publish content across multiple channels.",
+    "NeoSoftix is a digital growth agency delivering custom web development, mobile apps, digital marketing, software engineering, and AWS cloud solutions for global brands.",
+  keywords: [
+    "NeoSoftix",
+    "web development company",
+    "mobile app development",
+    "digital marketing agency",
+    "software development",
+    "AWS cloud solutions",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "NeoSoftix",
+    title: "NeoSoftix — Ideas to Impact",
+    description:
+      "All-in-one digital growth platform to create, manage, and publish content across multiple channels.",
+    images: [{ url: "/logo.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NeoSoftix — Ideas to Impact",
+    description:
+      "All-in-one digital growth platform to create, manage, and publish content across multiple channels.",
+    images: ["/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {

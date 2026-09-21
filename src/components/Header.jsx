@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Button from "./Button";
 
 const megaMenuServices = [
   {
@@ -208,27 +209,9 @@ export default function Header() {
 
         {/* Action Button: Contact Us (Login and Get Started removed as requested) */}
         <div className="hidden items-center gap-6 lg:flex">
-          <a
-            href="/contact"
-            className="group flex items-center gap-2 rounded-full bg-white px-6 py-2.5 text-sm font-bold text-[#050b16] transition-transform hover:scale-[1.03] shadow-lg"
-          >
+          <Button href="/contact" variant="light" size="sm" showArrow>
             Contact Us
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              className="transition-transform group-hover:translate-x-0.5"
-            >
-              <path
-                d="M1 7H13M13 7L7.5 1.5M13 7L7.5 12.5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
+          </Button>
         </div>
 
         {/* Mobile Toggle Button */}
@@ -352,13 +335,15 @@ export default function Header() {
         </a>
 
         <div className="mt-2 flex flex-col gap-2 border-t border-white/10 pt-3">
-          <a
+          <Button
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#050b16]"
+            variant="light"
+            size="sm"
+            className="w-full font-semibold"
           >
             Contact Us
-          </a>
+          </Button>
         </div>
       </div>
     </header>

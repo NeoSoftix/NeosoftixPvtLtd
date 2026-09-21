@@ -10,6 +10,15 @@ import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+export const metadata = {
+  title: "NeoSoftix — Ideas to Impact | Digital Growth Agency",
+  description:
+    "NeoSoftix helps businesses grow with custom web development, mobile app development, digital marketing, software engineering, and AWS cloud solutions.",
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function Home() {
   return (
     <>

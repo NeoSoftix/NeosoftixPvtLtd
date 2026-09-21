@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
+import Button from "./Button";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
 
@@ -13,7 +14,7 @@ export default function SubServiceTemplate({ data }) {
     <div className="relative w-full bg-[#050b16] text-white overflow-hidden">
       
       {/* HERO SECTION WITH SOFT SUBTLE LASER BORDER SWEEP */}
-      <section className="relative w-full bg-[#050b16] pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden text-white flex flex-col justify-center">
+      <section className="relative w-full bg-[#050b16] pt-32 pb-12 lg:pt-36 lg:pb-16 overflow-hidden text-white flex flex-col justify-center">
         {/* Background Ambient Lighting */}
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#050b16] via-[#081329] to-[#040914]" />
         <div className="pointer-events-none absolute left-1/2 top-1/3 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/15 blur-[160px]" />
@@ -101,13 +102,9 @@ export default function SubServiceTemplate({ data }) {
             transition={{ duration: 0.7, delay: 0.25 }}
             className="mt-8 flex justify-center"
           >
-            <a
-              href="/contact"
-              className="group inline-flex items-center gap-3 rounded-full bg-sky-400 px-8 py-4 text-xs sm:text-sm font-bold text-[#050b16] shadow-[0_10px_30px_rgba(56,189,248,0.3)] transition-all duration-300 hover:bg-white hover:scale-[1.03]"
-            >
-              <span>Contact Us</span>
-              <span className="font-bold">→</span>
-            </a>
+            <Button href="/contact" variant="accent" size="lg" showArrow>
+              Contact Us
+            </Button>
           </motion.div>
 
           {/* Hero Micro Stats Bar (Centered) */}
@@ -133,10 +130,10 @@ export default function SubServiceTemplate({ data }) {
       </section>
 
       {/* DELIVERABLES & FEATURES SECTION (Clean Crisp Light-Grey Theme) */}
-      <section className="relative w-full bg-[#f8fafc] py-16 lg:py-24 text-[#0f1729]">
+      <section className="relative w-full bg-[#f8fafc] py-12 lg:py-16 text-[#0f1729]">
         <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10 lg:px-16 xl:px-20">
           
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="text-center max-w-2xl mx-auto mb-8">
             <span className="text-xs font-bold tracking-widest text-blue-600 uppercase">
               DELIVERABLES & GUARANTEES
             </span>

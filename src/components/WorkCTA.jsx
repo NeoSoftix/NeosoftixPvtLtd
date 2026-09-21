@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
+import Button from "./Button";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
 
 export default function WorkCTA() {
   return (
-    <section className="relative w-full bg-[#050b16] py-20 lg:py-28 overflow-hidden text-white">
+    <section className="relative w-full bg-[#050b16] py-14 lg:py-20 overflow-hidden text-white">
       {/* Background Lighting */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[550px] w-[550px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/20 blur-[150px]" />
 
@@ -37,27 +38,15 @@ export default function WorkCTA() {
           </p>
 
           <div className="mt-8 flex justify-center">
-            <a
+            <Button
               href="/contact"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-blue-600 px-9 py-4 text-sm font-bold text-white shadow-xl transition-all duration-300 hover:bg-white hover:text-[#050b16] hover:scale-[1.04]"
+              variant="dark"
+              size="lg"
+              showArrow
+              className="bg-blue-600 hover:bg-white hover:text-[#050b16]"
             >
-              <span>Get in Touch</span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="transition-transform group-hover:translate-x-1"
-              >
-                <path
-                  d="M2.5 8H13.5M13.5 8L8.5 3M13.5 8L8.5 13"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
+              Get in Touch
+            </Button>
           </div>
         </motion.div>
 

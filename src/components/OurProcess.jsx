@@ -122,7 +122,7 @@ export default function OurProcess() {
   return (
     <section
       id="our-process"
-      className="relative w-full bg-[#f8fafc] py-20 lg:py-32"
+      className="relative w-full bg-[#f8fafc] py-16 lg:py-24"
     >
       {/* Subtle Background Glows */}
       <div className="pointer-events-none absolute -left-20 top-1/4 h-96 w-96 rounded-full bg-blue-100/40 blur-3xl" />

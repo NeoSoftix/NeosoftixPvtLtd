@@ -170,7 +170,7 @@ const faqs = [
 ];
 
 export default function Faq() {
-  const [openId, setOpenId] = useState(1);
+  const [openId, setOpenId] = useState(null);
 
   const toggleFaq = (id) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -182,7 +182,7 @@ export default function Faq() {
   return (
     <section
       id="faq"
-      className="relative w-full bg-[#f4f8fd] py-20 lg:py-32 overflow-hidden"
+      className="relative w-full bg-[#f4f8fd] py-16 lg:py-24 overflow-hidden"
     >
       <Image
         src="/faqbg.webp"
@@ -196,7 +196,7 @@ export default function Faq() {
       <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10 lg:px-16 xl:px-20">
         
         {/* Header Container */}
-        <div className="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

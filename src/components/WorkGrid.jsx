@@ -131,7 +131,7 @@ export default function WorkGrid() {
   });
 
   return (
-    <section className="relative w-full bg-[#f8fafc] py-16 lg:py-24 text-[#0f1729]">
+    <section className="relative w-full bg-[#f8fafc] py-12 lg:py-16 text-[#0f1729]">
       {/* Background Subtle Ambient Glows */}
       <div className="pointer-events-none absolute left-1/4 top-10 h-[500px] w-[500px] rounded-full bg-blue-100/40 blur-3xl" />
       <div className="pointer-events-none absolute right-1/4 bottom-10 h-[500px] w-[500px] rounded-full bg-sky-100/40 blur-3xl" />
@@ -139,7 +139,7 @@ export default function WorkGrid() {
       <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10 lg:px-16 xl:px-20">
         
         {/* Category Filter Pills Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-14">
+        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-8">
           {TABS.map((tab) => {
             const isActive = activeTab === tab;
             return (

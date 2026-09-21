@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 export const metadata = {
   title: "Contact Us — NeoSoftix",
   description: "Get in touch with the NeoSoftix team. Reach out to discuss your goals, review your setup, and turn your concepts into impactful digital products.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

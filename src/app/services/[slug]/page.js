@@ -15,6 +15,9 @@ export async function generateMetadata({ params }) {
   return {
     title: `${service.title} — NeoSoftix`,
     description: service.description,
+    alternates: {
+      canonical: `/services/${slug}`,
+    },
   };
 }
 

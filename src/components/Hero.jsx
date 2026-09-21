@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
+import Button from "./Button";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
 
@@ -18,9 +19,8 @@ export default function Hero() {
         className="object-cover object-center"
       />
 
-      {/* Dark Gradient Overlay for Text Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050b16] via-[#050b16]/85 to-[#050b16]/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#050b16] via-transparent to-transparent" />
+      {/* Dark Gradient Overlay for Text Legibility (left side only, image stays visible on the right) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#050b16] via-[#050b16]/80 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1400px] items-center px-6 pt-24 pb-16 sm:px-10 lg:px-16 xl:px-20">
@@ -53,34 +53,13 @@ export default function Hero() {
 
           {/* Action Buttons */}
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="#contact"
-              className="group flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-xs sm:text-sm font-bold text-[#050b16] shadow-xl transition-all duration-300 hover:bg-blue-600 hover:text-white hover:scale-[1.04]"
-            >
+            <Button href="#contact" variant="light" size="md" showArrow>
               Book An Appointment
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 16 16"
-                fill="none"
-                className="transition-transform group-hover:translate-x-1"
-              >
-                <path
-                  d="M2.5 8H13.5M13.5 8L8.5 3M13.5 8L8.5 13"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
+            </Button>
 
-            <a
-              href="#services"
-              className="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-xs sm:text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:bg-white/15"
-            >
+            <Button href="#services" variant="outline" size="md">
               Explore Services
-            </a>
+            </Button>
           </div>
         </motion.div>
       </div>

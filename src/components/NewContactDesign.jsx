@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useActionState } from "react";
 import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
+import Button from "./Button";
+import { submitContactPageForm } from "@/app/actions/contact";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -12,7 +14,6 @@ const playfair = Playfair_Display({
 });
 
 export default function NewContactDesign() {
-  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -20,21 +21,7 @@ export default function NewContactDesign() {
     service: "",
     message: "",
   });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
-      });
-    }, 4000);
-  };
+  const [state, formAction, pending] = useActionState(submitContactPageForm, undefined);
 
   return (
     <section
@@ -206,8 +193,8 @@ export default function NewContactDesign() {
               </h3>
 
               {/* Form Body */}
-              <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-                
+              <form action={formAction} className="mt-6 space-y-4">
+
                 {/* Inputs Row 1: Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Full Name */}
@@ -220,6 +207,7 @@ export default function NewContactDesign() {
                     </span>
                     <input
                       type="text"
+                      name="fullName"
                       required
                       placeholder="Full Name *"
                       value={formData.fullName}
@@ -238,6 +226,7 @@ export default function NewContactDesign() {
                     </span>
                     <input
                       type="email"
+                      name="email"
                       required
                       placeholder="Email Address *"
                       value={formData.email}
@@ -258,6 +247,7 @@ export default function NewContactDesign() {
                     </span>
                     <input
                       type="tel"
+                      name="phone"
                       placeholder="Phone Number"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -276,6 +266,7 @@ export default function NewContactDesign() {
                       </svg>
                     </span>
                     <select
+                      name="service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full appearance-none rounded-2xl border border-slate-200 bg-slate-50/50 py-3.5 pl-11 pr-10 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all cursor-pointer"
@@ -303,6 +294,7 @@ export default function NewContactDesign() {
                   </span>
                   <textarea
                     rows={4}
+                    name="message"
                     required
                     placeholder="Your Message *"
                     value={formData.message}
@@ -311,19 +303,24 @@ export default function NewContactDesign() {
                   />
                 </div>
 
+                {state?.error && (
+                  <p className="text-sm text-red-600" role="alert">
+                    {state.error}
+                  </p>
+                )}
+
                 {/* Submit Button */}
                 <div className="pt-2">
-                  <button
+                  <Button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 rounded-2xl bg-[#041d45] hover:bg-[#031533] px-8 py-4 text-sm sm:text-base font-bold text-white shadow-xl transition-all duration-300 hover:scale-[1.01]"
+                    variant="dark"
+                    size="lg"
+                    showArrow={!pending}
+                    disabled={pending}
+                    className="w-full bg-[#041d45] hover:bg-[#031533] text-sm sm:text-base"
                   >
-                    <span>{submitted ? "Message Sent Successfully! ✓" : "Send Message"}</span>
-                    {!submitted && (
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M2.5 8H13.5M13.5 8L8.5 3M13.5 8L8.5 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    )}
-                  </button>
+                    {pending ? "Sending..." : "Send Message"}
+                  </Button>
                 </div>
 
                 {/* Lock Note */}

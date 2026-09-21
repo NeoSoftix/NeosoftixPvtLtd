@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Playfair_Display, Caveat } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
+import Button from "./Button";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -217,14 +218,14 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="relative w-full bg-[#faf9f6] py-20 lg:py-32 overflow-hidden">
+    <section id="portfolio" className="relative w-full bg-[#faf9f6] py-16 lg:py-24 overflow-hidden">
       {/* Background Orbs */}
       <div className="pointer-events-none absolute -left-20 top-1/3 h-96 w-96 rounded-full bg-blue-100/60 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-1/3 h-96 w-96 rounded-full bg-sky-100/50 blur-3xl" />
 
       <div className="relative mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-16 xl:px-20">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-8">
           
           {/* Left Title & Description */}
           <motion.div
@@ -407,27 +408,9 @@ export default function Portfolio() {
 
         {/* View More Projects Center Button */}
         <div className="mt-12 text-center">
-          <a
-            href="/work"
-            className="inline-flex items-center gap-2 rounded-full bg-[#050b16] px-8 py-4 text-sm sm:text-base font-bold text-white shadow-lg hover:bg-blue-600 transition-all duration-300 hover:scale-[1.03]"
-          >
+          <Button href="/work" variant="dark" size="lg" showArrow className="text-sm sm:text-base">
             View More Projects
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              className="transition-transform group-hover:translate-x-1"
-            >
-              <path
-                d="M2.5 8H13.5M13.5 8L8.5 3M13.5 8L8.5 13"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </a>
+          </Button>
         </div>
       </div>
     </section>
