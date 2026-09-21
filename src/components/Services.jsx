@@ -11,6 +11,7 @@ const services = [
     description:
       "Build a tailored iOS, Android, or cross-platform app — crafted for performance, accuracy, and cost-efficiency.",
     rotate: 6,
+    href: "/services/mobile-app-development",
   },
   {
     number: "02",
@@ -18,6 +19,7 @@ const services = [
     description:
       "Our custom web design and development services are crafted to suit your specific business requirements.",
     rotate: -7,
+    href: "/services/web-development",
   },
   {
     number: "03",
@@ -25,6 +27,7 @@ const services = [
     description:
       "Elevate your business with advanced digital strategies that boost performance, creativity, and growth potential.",
     rotate: 5,
+    href: "/services/digital-marketing",
   },
   {
     number: "04",
@@ -32,6 +35,7 @@ const services = [
     description:
       "Create tailored software solutions to solve unique business needs and enhance overall efficiency.",
     rotate: -6,
+    href: "/services/software-development",
   },
   {
     number: "05",
@@ -39,6 +43,7 @@ const services = [
     description:
       "Enable your organization to innovate faster, adapt quickly to change, and scale efficiently with fully tailored AWS cloud solutions.",
     rotate: 5,
+    href: "/services/aws",
   },
 ];
 
@@ -76,7 +81,7 @@ function ServiceCard({ service, pinRef, className = "" }) {
           {service.description}
         </p>
         <a
-          href="#learn-more"
+          href={service.href || "#"}
           className="mt-5 inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#3b82f6] hover:text-blue-700 transition-colors group"
         >
           Learn More

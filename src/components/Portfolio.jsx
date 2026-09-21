@@ -408,7 +408,7 @@ export default function Portfolio() {
         {/* View More Projects Center Button */}
         <div className="mt-12 text-center">
           <a
-            href="#contact"
+            href="/work"
             className="inline-flex items-center gap-2 rounded-full bg-[#050b16] px-8 py-4 text-sm sm:text-base font-bold text-white shadow-lg hover:bg-blue-600 transition-all duration-300 hover:scale-[1.03]"
           >
             View More Projects

@@ -3,21 +3,21 @@
 import Image from "next/image";
 
 const quickLinks = [
-  { name: "Home", href: "#" },
-  { name: "About Us", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Our Work", href: "#portfolio" },
-  { name: "Blogs", href: "#blogs" },
-  { name: "Contact Us", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Our Work", href: "/work" },
+  { name: "Blogs", href: "/#blogs" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 const ourServices = [
-  { name: "Mobile App Development", href: "#services" },
-  { name: "Web Development", href: "#services" },
-  { name: "Digital Marketing", href: "#services" },
-  { name: "API Integration", href: "#services" },
-  { name: "Software Development", href: "#services" },
-  { name: "AWS", href: "#services" },
+  { name: "Mobile App Development", href: "/services" },
+  { name: "Web Development", href: "/services" },
+  { name: "Digital Marketing", href: "/services" },
+  { name: "API Integration", href: "/services" },
+  { name: "Software Development", href: "/services" },
+  { name: "AWS", href: "/services" },
 ];
 
 export default function Footer() {
@@ -181,9 +181,14 @@ export default function Footer() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span className="leading-relaxed">
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Bestech+Business+Tower+Mohali+160062"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="leading-relaxed hover:text-white transition-colors"
+                  >
                     A-817, 8th Floor, Bestech Business Tower, Mohali, 160062.
-                  </span>
+                  </a>
                 </div>
 
                 {/* Phone 1 */}
@@ -254,11 +259,13 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Social Icons (Facebook, Instagram, LinkedIn, Pinterest) */}
+          {/* Social Icons (Facebook, X, Instagram, LinkedIn, Pinterest) */}
           <div className="flex items-center gap-3 shrink-0">
             {/* Facebook */}
             <a
-              href="#"
+              href="https://www.facebook.com/neosoftix/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Facebook"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all"
             >
@@ -267,9 +274,24 @@ export default function Footer() {
               </svg>
             </a>
 
+            {/* X (Twitter) */}
+            <a
+              href="https://x.com/neosoftix"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter)"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 hover:bg-black hover:text-white hover:border-black transition-all"
+            >
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+
             {/* Instagram */}
             <a
-              href="#"
+              href="https://www.instagram.com/neo_softix/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 hover:bg-pink-600 hover:text-white hover:border-pink-600 transition-all"
             >
@@ -280,7 +302,9 @@ export default function Footer() {
 
             {/* LinkedIn */}
             <a
-              href="#"
+              href="https://www.linkedin.com/company/neosoftix/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 hover:bg-blue-700 hover:text-white hover:border-blue-700 transition-all"
             >
@@ -291,7 +315,9 @@ export default function Footer() {
 
             {/* Pinterest */}
             <a
-              href="#"
+              href="https://in.pinterest.com/neosoftix/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Pinterest"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-300 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all"
             >
