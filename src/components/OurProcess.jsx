@@ -10,7 +10,7 @@ const playfair = Playfair_Display({
   weight: ["700", "800"],
 });
 
-const processSteps = [
+const defaultProcessSteps = [
   {
     stepNumber: "Step_1",
     stepIndex: "01",
@@ -116,8 +116,15 @@ function ProcessCard({ step, index, activeStep, setActiveStep }) {
   );
 }
 
-export default function OurProcess() {
+export default function OurProcess({
+  badge = "Our Working Process",
+  title = "Our Process",
+  highlightWords = ["Process"],
+  description = "You can begin seeing progress within the first month—from initial demo to a fully live solution. From the start, we stay adaptable and responsive, adjusting quickly to your evolving requirements.",
+  steps = defaultProcessSteps,
+}) {
   const [activeStep, setActiveStep] = useState(0);
+  const processSteps = steps;
 
   return (
     <section
@@ -143,21 +150,19 @@ export default function OurProcess() {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold tracking-widest text-blue-600 uppercase mb-4">
                 <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
-                Our Working Process
+                {badge}
               </div>
 
               <AnimatedHeading
-                text="Our Process"
-                highlightWords={["Process"]}
+                text={title}
+                highlightWords={highlightWords}
                 fontClass={playfair.className}
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0f1729] leading-[1.12] tracking-tight"
               />
 
               {/* Subtitle / Description */}
               <p className="mt-6 text-base sm:text-lg leading-relaxed text-slate-600 max-w-lg font-normal">
-                You can begin seeing progress within the first month—from initial
-                demo to a fully live solution. From the start, we stay adaptable
-                and responsive, adjusting quickly to your evolving requirements.
+                {description}
               </p>
 
               {/* Live Step Navigation / Indicators */}

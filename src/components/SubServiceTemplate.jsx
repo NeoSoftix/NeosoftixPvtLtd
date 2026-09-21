@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
 import Button from "./Button";
+import OurProcess from "./OurProcess";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
 
@@ -11,7 +12,7 @@ export default function SubServiceTemplate({ data }) {
   if (!data) return null;
 
   return (
-    <div className="relative w-full bg-[#050b16] text-white overflow-hidden">
+    <div className="relative w-full bg-[#050b16] text-white">
       
       {/* HERO SECTION WITH SOFT SUBTLE LASER BORDER SWEEP */}
       <section className="relative w-full bg-[#050b16] pt-32 pb-12 lg:pt-36 lg:pb-16 overflow-hidden text-white flex flex-col justify-center">
@@ -130,7 +131,7 @@ export default function SubServiceTemplate({ data }) {
       </section>
 
       {/* DELIVERABLES & FEATURES SECTION (Clean Crisp Light-Grey Theme) */}
-      <section className="relative w-full bg-[#f8fafc] py-12 lg:py-16 text-[#0f1729]">
+      <section className="relative w-full bg-white py-12 lg:py-16 text-[#0f1729]">
         <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10 lg:px-16 xl:px-20">
           
           <div className="text-center max-w-2xl mx-auto mb-8">
@@ -165,6 +166,17 @@ export default function SubServiceTemplate({ data }) {
 
         </div>
       </section>
+
+      {/* PROCESS SECTION (per-service content) */}
+      {data.process && (
+        <OurProcess
+          badge={`Our ${data.title} Process`}
+          title="Our Process"
+          highlightWords={["Process"]}
+          description={data.process.description}
+          steps={data.process.steps}
+        />
+      )}
 
     </div>
   );
