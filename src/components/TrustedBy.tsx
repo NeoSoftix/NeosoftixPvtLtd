@@ -3,28 +3,14 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
 import Button from "./Button";
+import { playfair } from "@/lib/fonts";
+import { partnerClients as partners } from "@/data/projects";
 
-const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
 
 const ORBIT_DURATION = 32;
 const CENTER_INTERVAL = 2600;
-
-const partners = [
-  { src: "/anghiti.png", alt: "Angithi Indian Cuisine", category: "Restaurant & Catering", dark: true },
-  { src: "/malo-tech.png", alt: "malo-tech.de", category: "Tech Solutions" },
-  { src: "/supersure.png", alt: "SuperSure", category: "Consumer Brands" },
-  { src: "/gg-pizza.png", alt: "GG Pizza", category: "Pizzeria & Dining", dark: true },
-  { src: "/cleantime.png", alt: "CleanTime", category: "Cleaning Services" },
-  { src: "/parkease.png", alt: "ParkEase", category: "Parking Solutions" },
-  { src: "/pizzeria.png", alt: "Pizzeria Da Luigi", category: "Italian Restaurant", dark: true },
-  { src: "/efsane.png", alt: "Efsane", category: "E-Commerce", dark: true },
-  { src: "/brothers.png", alt: "Brothers Automotive", category: "Automotive", dark: true },
-  { src: "/liefro.png", alt: "Liefro", category: "Mobile Platform" },
-  { src: "/anayaindiankitchen.png", alt: "Anaya Indian Kitchen", category: "Fine Dining", dark: true },
-];
 
 const features = [
   {
@@ -152,7 +138,7 @@ export default function TrustedBy() {
               const angle = angleStep * i;
               return (
                 <div
-                  key={partner.alt}
+                  key={partner.name}
                   className="absolute left-1/2 top-1/2 h-0 w-0"
                   style={{
                     transform: `rotate(${angle}deg) translate(clamp(120px, 34vw, 230px)) rotate(${-angle}deg)`,
@@ -169,19 +155,19 @@ export default function TrustedBy() {
                   >
                     <div
                       className={`flex h-16 w-16 items-center justify-center rounded-2xl p-2.5 shadow-[0_8px_20px_rgba(15,23,41,0.15)] ring-1 ring-black/5 sm:h-20 sm:w-20 sm:p-3 md:h-24 md:w-24 md:p-3.5 ${
-                        partner.dark ? "bg-[#0c0c0c]" : "bg-white"
+                        partner.darkLogo ? "bg-[#0c0c0c]" : "bg-white"
                       }`}
                     >
                       <Image
-                        src={partner.src}
-                        alt={partner.alt}
+                        src={partner.logo}
+                        alt={partner.name}
                         width={140}
                         height={140}
                         className="h-full w-full object-contain"
                       />
                     </div>
                     <span className="hidden whitespace-nowrap text-[10px] font-semibold uppercase tracking-wide text-slate-500 md:block">
-                      {partner.category}
+                      {partner.industry}
                     </span>
                   </motion.div>
                 </div>
@@ -192,7 +178,7 @@ export default function TrustedBy() {
           <div className="absolute left-1/2 top-1/2 flex h-36 w-36 -translate-x-1/2 -translate-y-1/2 items-center justify-center overflow-hidden rounded-3xl bg-white p-6 shadow-[0_16px_40px_rgba(15,23,41,0.25)] ring-1 ring-black/5 sm:h-44 sm:w-44 md:h-52 md:w-52">
             <AnimatePresence mode="wait">
               <motion.div
-                key={partners[activeIndex].alt}
+                key={partners[activeIndex].name}
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.85 }}
@@ -200,8 +186,8 @@ export default function TrustedBy() {
                 className="flex h-full w-full items-center justify-center"
               >
                 <Image
-                  src={partners[activeIndex].src}
-                  alt={partners[activeIndex].alt}
+                  src={partners[activeIndex].logo}
+                  alt={partners[activeIndex].name}
                   width={220}
                   height={220}
                   className="h-full w-full object-contain"

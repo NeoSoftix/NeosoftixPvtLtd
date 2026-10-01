@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
 import Services from "@/components/Services";
 import OurProcess from "@/components/OurProcess";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Our Services — NeoSoftix | Digital & Mobile Engineering",
@@ -19,7 +17,6 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-[#050b16]">
-      <Header />
       <PageHero
         badge="OUR SERVICES"
         title="Engineering High-Performance Digital Products & Scalable Systems"
@@ -30,7 +27,6 @@ export default function ServicesPage() {
       <OurProcess />
       <Faq />
       <Contact />
-      <Footer />
     </main>
   );
 }

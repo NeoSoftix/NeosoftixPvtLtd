@@ -1,11 +1,11 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
 import Button from "./Button";
-
-const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
+import { playfair } from "@/lib/fonts";
+import SectionBadge from "./SectionBadge";
 
 type Cta = { href: string; label: string };
 
@@ -13,7 +13,10 @@ type PageHeroProps = {
   badge: string;
   title: string;
   highlightWords?: string[];
+  tagline?: string;
   description: string;
+  /** Extra content rendered under the description (e.g. tech stack pills) */
+  children?: ReactNode;
   stats?: { value: string; label: string }[];
   primaryCta?: Cta;
   secondaryCta?: Cta;
@@ -24,7 +27,9 @@ export default function PageHero({
   badge,
   title,
   highlightWords = [],
+  tagline,
   description,
+  children,
   stats,
   primaryCta,
   secondaryCta,
@@ -61,10 +66,9 @@ export default function PageHero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-500/10 px-5 py-2 text-xs sm:text-sm font-bold tracking-[0.25em] text-sky-400 uppercase backdrop-blur-md mb-6 shadow-[0_0_20px_rgba(56,189,248,0.15)]"
+          className="mb-6"
         >
-          <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-          {badge}
+          <SectionBadge variant="pill" tone="dark">{badge}</SectionBadge>
         </motion.div>
 
         {/* Animated Heading (Centered Text, White & Blue) */}
@@ -82,6 +86,17 @@ export default function PageHero({
           />
         </div>
 
+        {tagline && (
+          <motion.span
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="block mt-4 text-base sm:text-xl font-bold text-sky-400"
+          >
+            {tagline}
+          </motion.span>
+        )}
+
         {/* Sub-description */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -93,6 +108,8 @@ export default function PageHero({
         >
           {description}
         </motion.p>
+
+        {children}
 
         {/* Optional Action CTA Buttons */}
         {(primaryCta || secondaryCta) && (

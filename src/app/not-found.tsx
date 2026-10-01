@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Button from "@/components/Button";
 
 export const metadata: Metadata = {
@@ -10,8 +8,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-[#050b16] flex flex-col">
-      <Header />
+    <main className="flex-1 bg-[#050b16] flex flex-col">
       <section className="relative flex-1 flex items-center justify-center overflow-hidden pt-32 pb-24">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#050b16] via-[#081329] to-[#040914]" />
         <div className="pointer-events-none absolute left-1/2 top-1/3 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/15 blur-[160px]" />
@@ -36,7 +33,6 @@ export default function NotFound() {
           </div>
         </div>
       </section>
-      <Footer />
     </main>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { services } from "@/data/services";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -9,15 +10,6 @@ const quickLinks = [
   { name: "Our Work", href: "/work" },
   { name: "Blogs", href: "/#blogs" },
   { name: "Contact Us", href: "/contact" },
-];
-
-const ourServices = [
-  { name: "Mobile App Development", href: "/services" },
-  { name: "Web Development", href: "/services" },
-  { name: "Digital Marketing", href: "/services" },
-  { name: "API Integration", href: "/services" },
-  { name: "Software Development", href: "/services" },
-  { name: "AWS", href: "/services" },
 ];
 
 export default function Footer() {
@@ -143,13 +135,13 @@ export default function Footer() {
                 Our Services
               </h4>
               <ul className="space-y-2.5">
-                {ourServices.map((service) => (
-                  <li key={service.name}>
+                {services.map((service) => (
+                  <li key={service.title}>
                     <a
                       href={service.href}
                       className="text-xs sm:text-sm text-slate-400 hover:text-white transition-colors font-medium"
                     >
-                      {service.name}
+                      {service.title}
                     </a>
                   </li>
                 ))}

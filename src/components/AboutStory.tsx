@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
-
-const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
+import { playfair } from "@/lib/fonts";
+import SectionBadge from "./SectionBadge";
+import { CheckIcon } from "./icons";
 
 const coreValues = [
   {
@@ -129,10 +129,7 @@ export default function AboutStory() {
               transition={{ duration: 0.7 }}
               className="lg:col-span-6"
             >
-              <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold tracking-widest text-blue-600 uppercase mb-4">
-                <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
-                OUR STORY & MISSION
-              </div>
+              <SectionBadge tone="light" className="mb-4">OUR STORY & MISSION</SectionBadge>
 
               <AnimatedHeading
                 text="Bridging Visionary Ideas into High-Impact Software"
@@ -154,9 +151,7 @@ export default function AboutStory() {
                 {teamPillars.map((pillar) => (
                   <div key={pillar.title} className="flex items-start gap-3 rounded-xl bg-white p-4 border border-slate-200/80 shadow-sm">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-600/10 text-blue-600 mt-0.5">
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 8.5L6.2 11.5L13 4.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
+                      <CheckIcon />
                     </span>
                     <div>
                       <h4 className="text-sm font-bold text-[#0f1729]">{pillar.title}</h4>
@@ -181,9 +176,7 @@ export default function AboutStory() {
         <div className="relative mx-auto w-full max-w-[1400px] px-6 sm:px-10 lg:px-16 xl:px-20">
           
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-xs font-bold tracking-widest text-sky-400 uppercase">
-              OUR GUIDING PRINCIPLES
-            </span>
+            <SectionBadge variant="plain" tone="dark">OUR GUIDING PRINCIPLES</SectionBadge>
             <h2 className={`${playfair.className} text-2xl sm:text-4xl md:text-5xl font-extrabold text-white mt-3`}>
               What Drives NeoSoftix Forward
             </h2>

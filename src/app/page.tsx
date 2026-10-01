@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TrustedBy from "@/components/TrustedBy";
 import Services from "@/components/Services";
@@ -9,7 +8,6 @@ import OurProcess from "@/components/OurProcess";
 import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "NeoSoftix — Ideas to Impact | Digital Growth Agency",
@@ -23,7 +21,6 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Header />
       <Hero />
       <TrustedBy />
       <About />
@@ -33,7 +30,6 @@ export default function Home() {
       <Testimonials />
       <Faq />
       <Contact />
-      <Footer />
     </>
   );
 }

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
 import LegalContent from "@/components/LegalContent";
-import Footer from "@/components/Footer";
 import { termsConditionsSections } from "@/data/termsConditionsData";
 
 export const metadata: Metadata = {
@@ -17,7 +15,6 @@ export const metadata: Metadata = {
 export default function TermsConditionsPage() {
   return (
     <main className="min-h-screen bg-slate-50">
-      <Header />
       <PageHero
         compact
         badge="TERMS & CONDITIONS"
@@ -25,7 +22,6 @@ export default function TermsConditionsPage() {
         description="Please read these terms carefully before using the NeoSoftix website or engaging with our services."
       />
       <LegalContent lastUpdated="January 1, 2026" sections={termsConditionsSections} />
-      <Footer />
     </main>
   );
 }

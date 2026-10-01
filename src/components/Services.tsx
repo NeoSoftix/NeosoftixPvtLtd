@@ -3,63 +3,20 @@
 import { useState, useRef, useEffect, useCallback, type Ref } from "react";
 import { motion } from "framer-motion";
 import AnimatedHeading from "./AnimatedHeading";
+import { services as serviceList, type ServiceItem } from "@/data/services";
+import { ArrowRightIcon } from "./icons";
 
-type Service = {
-  number: string;
-  title: string;
-  description: string;
-  rotate: number;
-  href: string;
-};
+type Service = ServiceItem & { rotate: number };
+
+// Resting tilt of each sticky-note card, in list order
+const CARD_ROTATIONS = [6, -7, 5, -6, 5];
+const services: Service[] = serviceList.map((s, i) => ({ ...s, rotate: CARD_ROTATIONS[i] ?? 0 }));
 
 type ServiceCardProps = {
   service: Service;
   pinRef?: Ref<HTMLSpanElement>;
   className?: string;
 };
-
-const services: Service[] = [
-  {
-    number: "01",
-    title: "Mobile App Development",
-    description:
-      "Build a tailored iOS, Android, or cross-platform app — crafted for performance, accuracy, and cost-efficiency.",
-    rotate: 6,
-    href: "/services/mobile-app-development",
-  },
-  {
-    number: "02",
-    title: "Web Development",
-    description:
-      "Our custom web design and development services are crafted to suit your specific business requirements.",
-    rotate: -7,
-    href: "/services/web-development",
-  },
-  {
-    number: "03",
-    title: "Digital Marketing",
-    description:
-      "Elevate your business with advanced digital strategies that boost performance, creativity, and growth potential.",
-    rotate: 5,
-    href: "/services/digital-marketing",
-  },
-  {
-    number: "04",
-    title: "Software Development",
-    description:
-      "Create tailored software solutions to solve unique business needs and enhance overall efficiency.",
-    rotate: -6,
-    href: "/services/software-development",
-  },
-  {
-    number: "05",
-    title: "AWS",
-    description:
-      "Enable your organization to innovate faster, adapt quickly to change, and scale efficiently with fully tailored AWS cloud solutions.",
-    rotate: 5,
-    href: "/services/aws",
-  },
-];
 
 function ServiceCard({ service, pinRef, className = "" }: ServiceCardProps) {
   const [hovered, setHovered] = useState(false);
@@ -99,21 +56,7 @@ function ServiceCard({ service, pinRef, className = "" }: ServiceCardProps) {
           className="mt-5 inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#3b82f6] hover:text-blue-700 transition-colors group"
         >
           Learn More
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 16 16"
-            fill="none"
-            className="transition-transform group-hover:translate-x-1"
-          >
-            <path
-              d="M2.5 8H13.5M13.5 8L8.5 3M13.5 8L8.5 13"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <ArrowRightIcon className="transition-transform group-hover:translate-x-1" />
         </a>
       </div>
     </motion.div>

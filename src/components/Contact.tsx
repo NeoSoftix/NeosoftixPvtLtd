@@ -2,15 +2,11 @@
 
 import { useState, useActionState } from "react";
 import { motion } from "framer-motion";
-import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
 import Button from "./Button";
 import { submitHomeContactForm } from "@/app/actions/contact";
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["700", "800"],
-});
+import { playfair } from "@/lib/fonts";
+import SectionBadge from "./SectionBadge";
 
 const FlagIndia = ({ className = "w-5 h-5" }) => (
   <svg className={`${className} rounded-full overflow-hidden shrink-0 shadow-sm border border-slate-200`} viewBox="0 0 640 480">
@@ -102,10 +98,7 @@ export default function Contact() {
             className="lg:col-span-6 flex flex-col justify-center"
           >
             {/* Tag */}
-            <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold tracking-widest text-blue-600 uppercase mb-3">
-              <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
-              LET&apos;S TALK
-            </div>
+            <SectionBadge tone="light" className="mb-3">LET&apos;S TALK</SectionBadge>
 
             {/* Main Title */}
             <AnimatedHeading

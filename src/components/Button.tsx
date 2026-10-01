@@ -2,7 +2,7 @@
 
 import type { HTMLAttributes, MouseEventHandler, ReactNode } from "react";
 
-type Variant = "light" | "dark" | "accent" | "outline" | "outline-dark";
+type Variant = "primary" | "light" | "dark" | "accent" | "outline" | "outline-dark";
 type Size = "sm" | "md" | "lg";
 
 type ButtonProps = {
@@ -20,6 +20,8 @@ type ButtonProps = {
 } & Omit<HTMLAttributes<HTMLElement>, "children" | "onClick" | "className">;
 
 const variantClasses: Record<Variant, string> = {
+  primary:
+    "bg-blue-600 text-white hover:bg-blue-500 shadow-[0_0_24px_rgba(59,130,246,0.45)]",
   light:
     "bg-white text-[#050b16] hover:bg-blue-600 hover:text-white",
   dark:

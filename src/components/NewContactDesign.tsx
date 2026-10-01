@@ -2,16 +2,11 @@
 
 import { useState, useActionState } from "react";
 import { motion } from "framer-motion";
-import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
 import Button from "./Button";
 import { submitContactPageForm } from "@/app/actions/contact";
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700", "800"],
-  style: ["normal", "italic"],
-});
+import { playfair } from "@/lib/fonts";
+import { services } from "@/data/services";
 
 export default function NewContactDesign() {
   const [formData, setFormData] = useState({
@@ -272,10 +267,11 @@ export default function NewContactDesign() {
                       className="w-full appearance-none rounded-2xl border border-slate-200 bg-slate-50/50 py-3.5 pl-11 pr-10 text-sm text-slate-800 placeholder-slate-400 focus:bg-white focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all cursor-pointer"
                     >
                       <option value="" disabled>Select Service</option>
-                      <option value="web">Web Engineering</option>
-                      <option value="mobile">Mobile App Development</option>
-                      <option value="seo">Digital Growth & SEO</option>
-                      <option value="cloud">Cloud & AWS Solutions</option>
+                      {services.map((service) => (
+                        <option key={service.title} value={service.title}>
+                          {service.title}
+                        </option>
+                      ))}
                     </select>
                     <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

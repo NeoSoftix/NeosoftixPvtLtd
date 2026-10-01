@@ -4,39 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
+import { services as megaMenuServices } from "@/data/services";
+import { CloseIcon } from "./icons";
 
-const megaMenuServices = [
-  {
-    name: "Mobile App Development",
-    desc: "Build tailored iOS, Android & cross-platform apps",
-    href: "/services/mobile-app-development",
-    icon: "📱",
-  },
-  {
-    name: "Web Development",
-    desc: "Custom web applications & Next.js platforms",
-    href: "/services/web-development",
-    icon: "💻",
-  },
-  {
-    name: "Digital Marketing",
-    desc: "SEO, PPC ads & performance growth marketing",
-    href: "/services/digital-marketing",
-    icon: "📈",
-  },
-  {
-    name: "Software Development",
-    desc: "Tailored enterprise software & custom workflows",
-    href: "/services/software-development",
-    icon: "⚙️",
-  },
-  {
-    name: "AWS",
-    desc: "Tailored AWS cloud solutions & DevOps scale",
-    href: "/services/aws",
-    icon: "☁️",
-  },
-];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -170,7 +140,7 @@ export default function Header() {
                 <div className="grid grid-cols-2 gap-3">
                   {megaMenuServices.map((sub) => (
                     <Link
-                      key={sub.name}
+                      key={sub.title}
                       href={sub.href}
                       onClick={() => setMegaOpen(false)}
                       className="group flex items-start gap-3 rounded-2xl bg-white/5 p-3.5 border border-white/5 hover:bg-white/10 hover:border-sky-400/40 transition-all duration-200"
@@ -180,10 +150,10 @@ export default function Header() {
                       </span>
                       <div>
                         <h4 className="text-sm font-bold text-white group-hover:text-sky-400 transition-colors">
-                          {sub.name}
+                          {sub.title}
                         </h4>
                         <p className="text-xs text-slate-400 mt-0.5 line-clamp-1 font-normal">
-                          {sub.desc}
+                          {sub.menuDescription}
                         </p>
                       </div>
                     </Link>
@@ -274,14 +244,7 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white"
           >
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
-              <path
-                d="M1 1L17 17M17 1L1 17"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-            </svg>
+            <CloseIcon size={16} />
           </button>
         </div>
 
@@ -311,13 +274,13 @@ export default function Header() {
         <div className="ml-4 pl-3 border-l border-white/10 flex flex-col gap-2 my-1">
           {megaMenuServices.map((sub) => (
             <Link
-              key={sub.name}
+              key={sub.title}
               href={sub.href}
               onClick={() => setMenuOpen(false)}
               className="text-xs text-slate-300 hover:text-white py-1 flex items-center gap-2"
             >
               <span>{sub.icon}</span>
-              <span>{sub.name}</span>
+              <span>{sub.title}</span>
             </Link>
           ))}
         </div>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 import { siteUrl } from "@/lib/site";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +53,9 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  verification: {
+    google: "0xn0iOKwgDYwGd6QUKk53PgAB4mjYRF2IbNqizSQFQw",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -61,7 +66,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-[#050b16]" suppressHydrationWarning>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

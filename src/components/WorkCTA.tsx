@@ -1,10 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Playfair_Display } from "next/font/google";
 import Button from "./Button";
-
-const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
+import { playfair } from "@/lib/fonts";
 
 export default function WorkCTA() {
   return (

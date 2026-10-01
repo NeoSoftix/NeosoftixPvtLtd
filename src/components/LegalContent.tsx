@@ -1,8 +1,7 @@
 "use client";
 
-import { Playfair_Display } from "next/font/google";
+import { playfair } from "@/lib/fonts";
 
-const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
 
 export type LegalSection = { title: string; body: string[] };
 

@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { subServicesData } from "@/data/subServicesData";
-import Header from "@/components/Header";
 import SubServiceTemplate from "@/components/SubServiceTemplate";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
 
 export async function generateMetadata({
   params,
@@ -38,11 +36,9 @@ export default async function SubServicePage({ params }: PageProps<"/services/[s
 
   return (
     <main className="min-h-screen bg-[#030712]">
-      <Header />
       <SubServiceTemplate data={service} />
       <Faq />
       <Contact />
-      <Footer />
     </main>
   );
 }

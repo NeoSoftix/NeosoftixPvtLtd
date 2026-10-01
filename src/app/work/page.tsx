@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import Header from "@/components/Header";
 import PageHero from "@/components/PageHero";
 import WorkGrid from "@/components/WorkGrid";
 import WorkCTA from "@/components/WorkCTA";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Our Work — NeoSoftix | Featured Projects & Portfolio",
@@ -19,7 +17,6 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <main className="min-h-screen bg-[#050b16]">
-      <Header />
       <PageHero
         badge="OUR WORK"
         title="Turning Ideas Into Real Solutions"
@@ -35,7 +32,6 @@ export default function WorkPage() {
       <WorkCTA />
       <Faq />
       <Contact />
-      <Footer />
     </main>
   );
 }

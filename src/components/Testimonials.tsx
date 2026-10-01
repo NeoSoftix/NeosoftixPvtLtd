@@ -1,13 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["700", "800"],
-});
+import { playfair } from "@/lib/fonts";
+import SectionBadge from "./SectionBadge";
 
 type Testimonial = {
   stars: number;
@@ -118,10 +114,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold tracking-widest text-sky-400 uppercase mb-3">
-            <span className="h-2 w-2 rounded-full bg-sky-400 animate-pulse" />
-            Our Testimonials
-          </div>
+          <SectionBadge tone="dark" className="mb-3">Our Testimonials</SectionBadge>
 
           <AnimatedHeading
             text="Hear From Those Who've Worked With Us"

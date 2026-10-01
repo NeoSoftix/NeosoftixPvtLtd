@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Playfair_Display } from "next/font/google";
 import Button from "./Button";
-
-const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700", "800"] });
+import { playfair } from "@/lib/fonts";
+import { CheckIcon } from "./icons";
 
 const highlights = [
   "Dedicated team of engineers, designers & strategists",
@@ -50,15 +49,7 @@ export default function About() {
             {highlights.map((point) => (
               <li key={point} className="flex items-start gap-3">
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#3b82f6]/10 text-[#3b82f6]">
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                    <path
-                      d="M3 8.5L6.2 11.5L13 4.5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <CheckIcon />
                 </span>
                 <span className="text-sm sm:text-base text-slate-700">{point}</span>
               </li>

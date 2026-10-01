@@ -2,14 +2,10 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import { Playfair_Display } from "next/font/google";
 import AnimatedHeading from "./AnimatedHeading";
 import type { ProcessStep } from "@/data/subServicesData";
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["700", "800"],
-});
+import { playfair } from "@/lib/fonts";
+import SectionBadge from "./SectionBadge";
 
 type ProcessCardProps = {
   step: ProcessStep;
@@ -164,10 +160,7 @@ export default function OurProcess({
               transition={{ duration: 0.6 }}
             >
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold tracking-widest text-blue-600 uppercase mb-4">
-                <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
-                {badge}
-              </div>
+              <SectionBadge tone="light" className="mb-4">{badge}</SectionBadge>
 
               <AnimatedHeading
                 text={title}
