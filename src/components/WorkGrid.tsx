@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { PROJECT_TABS, filterByCategory, workProjects } from "@/data/projects";
+import { PROJECT_TABS, filterByCategory, projectUrl, workProjects } from "@/data/projects";
+import { ArrowUpRightIcon } from "./icons";
 
 
 export default function WorkGrid() {
@@ -43,7 +44,9 @@ export default function WorkGrid() {
         {/* Projects 3-Column Grid */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 items-stretch">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project) => {
+              const url = projectUrl(project);
+              return (
               <motion.div
                 key={project.id}
                 layout
@@ -54,6 +57,16 @@ export default function WorkGrid() {
                 whileHover={{ y: -6 }}
                 className="group relative rounded-3xl bg-white border border-slate-200/80 p-5 sm:p-6 shadow-[0_10px_30px_-15px_rgba(15,23,42,0.08)] flex flex-col justify-between overflow-hidden hover:border-blue-500 hover:shadow-[0_20px_40px_-15px_rgba(15,23,42,0.18)] transition-all duration-300"
               >
+                {/* Whole card opens the live site */}
+                {url && (
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit ${project.title} website`}
+                    className="absolute inset-0 z-30 rounded-3xl"
+                  />
+                )}
                 <div>
                   {/* Card Header Image / Logo Box */}
                   <div className={`relative w-full aspect-[16/10] rounded-2xl ${project.bannerBg ?? project.client.bannerBg} border border-slate-200/40 overflow-hidden flex items-center justify-center p-6 mb-5 shadow-inner`}>
@@ -82,9 +95,17 @@ export default function WorkGrid() {
                   <p className="mt-1.5 text-xs sm:text-sm text-slate-600 font-normal">
                     {project.tags}
                   </p>
+
+                  {url && (
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-blue-600">
+                      Visit Website
+                      <ArrowUpRightIcon size={12} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </span>
+                  )}
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </AnimatePresence>
         </motion.div>
 

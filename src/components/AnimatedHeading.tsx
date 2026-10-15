@@ -9,6 +9,7 @@ type WordProps = {
   range: [number, number];
   isHighlight: boolean;
   dark?: boolean;
+  italicHighlight?: boolean;
 };
 
 type AnimatedHeadingProps = {
@@ -17,10 +18,12 @@ type AnimatedHeadingProps = {
   className?: string;
   fontClass?: string;
   dark?: boolean;
+  /** Render highlighted words in italic (e.g. "Great Businesses") */
+  italicHighlight?: boolean;
   as?: "h1" | "h2" | "h3" | "h4";
 };
 
-function Word({ children, progress, range, isHighlight, dark = false }: WordProps) {
+function Word({ children, progress, range, isHighlight, dark = false, italicHighlight = false }: WordProps) {
   // Opacity transforms from 0 to 1 as scroll position passes through this word's range
   const opacity = useTransform(progress, range, [0, 1]);
 
@@ -32,7 +35,7 @@ function Word({ children, progress, range, isHighlight, dark = false }: WordProp
     : "text-[#0f1729]";
 
   return (
-    <span className="relative inline-block mr-[0.25em] select-none">
+    <span className={`relative inline-block mr-[0.25em] select-none ${isHighlight && italicHighlight ? "italic" : ""}`}>
       {/* Dimmed background word visible before scroll reaches it */}
       <span className={`opacity-30 ${baseDimColor}`}>
         {children}
@@ -55,6 +58,7 @@ export default function AnimatedHeading({
   className = "",
   fontClass = "",
   dark = false,
+  italicHighlight = false,
   as: Component = "h2",
 }: AnimatedHeadingProps) {
   const containerRef = useRef<HTMLHeadingElement>(null);
@@ -88,6 +92,7 @@ export default function AnimatedHeading({
             range={[start, end]}
             isHighlight={isHighlight}
             dark={dark}
+            italicHighlight={italicHighlight}
           >
             {word}
           </Word>

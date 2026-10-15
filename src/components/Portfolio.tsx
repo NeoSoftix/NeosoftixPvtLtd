@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import AnimatedHeading from "./AnimatedHeading";
 import Button from "./Button";
 import { playfair, scriptFont } from "@/lib/fonts";
-import { PROJECT_TABS, featuredProjects, filterByCategory } from "@/data/projects";
+import { PROJECT_TABS, featuredProjects, filterByCategory, projectUrl } from "@/data/projects";
 import SectionBadge from "./SectionBadge";
 import { ArrowRightIcon } from "./icons";
 
@@ -135,7 +135,10 @@ export default function Portfolio() {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project) => {
+                const url = projectUrl(project);
+                const linkProps = url ? { href: url, target: "_blank", rel: "noopener noreferrer" } : { href: "#contact" };
+                return (
                 <motion.div
                   key={project.id}
                   layout
@@ -146,7 +149,7 @@ export default function Portfolio() {
                   className="w-[300px] sm:w-[350px] lg:w-[380px] shrink-0 flex flex-col rounded-[28px] bg-white border border-slate-200/80 shadow-[0_10px_30px_-15px_rgba(15,23,42,0.08)] hover:shadow-[0_20px_40px_-15px_rgba(15,23,42,0.18)] hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
                 >
                   {/* Card Header Image / Banner */}
-                  <div className={`relative h-48 sm:h-52 w-full ${project.client.bannerBg} flex items-center justify-center p-6 border-b border-slate-100 overflow-hidden`}>
+                  <a {...linkProps} aria-label={`Visit ${project.title}`} className={`relative h-48 sm:h-52 w-full ${project.client.bannerBg} flex items-center justify-center p-6 border-b border-slate-100 overflow-hidden`}>
                     <div className={`absolute inset-0 opacity-40 ${project.bgGradient}`} />
                     
                     {/* Centered Client Logo */}
@@ -159,7 +162,7 @@ export default function Portfolio() {
                         className="h-full w-full object-contain filter drop-shadow-md transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
-                  </div>
+                  </a>
 
                   {/* Card Content Body */}
                   <div className="p-6 sm:p-7 flex flex-col justify-between flex-1 bg-white">
@@ -185,16 +188,17 @@ export default function Portfolio() {
                     {/* View Project Action */}
                     <div className="mt-6 pt-4 border-t border-slate-100">
                       <a
-                        href="#contact"
+                        {...linkProps}
                         className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors group/link"
                       >
-                        View Project
+                        {url ? "Visit Website" : "View Project"}
                         <ArrowRightIcon className="transition-transform group-hover/link:translate-x-1" />
                       </a>
                     </div>
                   </div>
                 </motion.div>
-              ))}
+                );
+              })}
             </AnimatePresence>
           </div>
         </div>

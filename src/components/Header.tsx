@@ -171,6 +171,13 @@ export default function Header() {
           </Link>
 
           <Link
+            href="/blog"
+            className="rounded-full px-5 py-2.5 text-base font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+          >
+            Blog
+          </Link>
+
+          <Link
             href="/contact"
             className="rounded-full px-5 py-2.5 text-base font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white"
           >
@@ -291,6 +298,13 @@ export default function Header() {
           className="rounded-xl px-4 py-2.5 text-base font-medium text-white/80 hover:bg-white/10 hover:text-white"
         >
           Our Work
+        </Link>
+        <Link
+          href="/blog"
+          onClick={() => setMenuOpen(false)}
+          className="rounded-xl px-4 py-2.5 text-base font-medium text-white/80 hover:bg-white/10 hover:text-white"
+        >
+          Blog
         </Link>
         <Link
           href="/contact"
