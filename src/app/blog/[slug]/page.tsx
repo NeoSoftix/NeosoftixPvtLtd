@@ -6,26 +6,22 @@ import ReadingProgress from "@/components/ReadingProgress";
 import Contact from "@/components/Contact";
 import { blogPosts, formatPostDate, getPost } from "@/data/blogPosts";
 import { playfair } from "@/lib/fonts";
+import { createMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) {
-    return { title: "Article Not Found — NeoSoftix" };
+    return { title: { absolute: "Article Not Found | NeoSoftix" }, robots: { index: false } };
   }
-  return {
-    title: `${post.title} — NeoSoftix Blog`,
+  return createMetadata({
+    title: `${post.title} | NeoSoftix`,
     description: post.excerpt,
-    alternates: {
-      canonical: `/blog/${slug}`,
-    },
-    openGraph: {
-      type: "article",
-      title: post.title,
-      description: post.excerpt,
-      publishedTime: post.date,
-    },
-  };
+    path: `/blog/${slug}`,
+    ogLabel: post.category,
+    type: "article",
+    publishedTime: post.date,
+  });
 }
 
 export async function generateStaticParams() {

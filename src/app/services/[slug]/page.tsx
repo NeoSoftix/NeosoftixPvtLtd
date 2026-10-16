@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { subServicesData } from "@/data/subServicesData";
+import { createMetadata } from "@/lib/seo";
 import SubServiceTemplate from "@/components/SubServiceTemplate";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
@@ -11,15 +12,15 @@ export async function generateMetadata({
   const { slug } = await params;
   const service = subServicesData[slug];
   if (!service) {
-    return { title: "Service Not Found — NeoSoftix" };
+    return { title: { absolute: "Service Not Found | NeoSoftix" }, robots: { index: false } };
   }
-  return {
-    title: `${service.title} — NeoSoftix`,
-    description: service.description,
-    alternates: {
-      canonical: `/services/${slug}`,
-    },
-  };
+  return createMetadata({
+    title: service.metaTitle,
+    description: service.metaDescription,
+    path: `/services/${slug}`,
+    ogTitle: `${service.title}: ${service.tagline}`,
+    ogLabel: "NeoSoftix Services",
+  });
 }
 
 export async function generateStaticParams() {

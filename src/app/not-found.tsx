@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Button from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "Page Not Found — NeoSoftix",
+  title: { absolute: "Page Not Found | NeoSoftix" },
   description: "The page you are looking for could not be found.",
+  robots: { index: false, follow: true },
 };
 
 export default function NotFound() {

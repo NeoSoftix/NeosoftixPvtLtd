@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 import Button from "@/components/Button";
 
-export const metadata: Metadata = {
-  title: "Thank You — NeoSoftix",
-  description: "Thanks for reaching out to NeoSoftix. We've received your message and will get back to you soon.",
-  alternates: {
-    canonical: "/thank-you",
-  },
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
+export const metadata: Metadata = createMetadata({
+  title: "Thank You | NeoSoftix",
+  description:
+    "Thanks for reaching out to NeoSoftix. We've received your message and will get back to you within one business day.",
+  path: "/thank-you",
+  noIndex: true,
+});
 
 export default function ThankYouPage() {
   return (

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
-import { siteUrl } from "@/lib/site";
+import { siteName, siteUrl } from "@/lib/site";
+import { ogImageUrl } from "@/lib/seo";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -12,12 +13,16 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  applicationName: siteName,
   title: {
-    default: "NeoSoftix — Ideas to Impact",
-    template: "%s",
+    default: "NeoSoftix | Web, App & Digital Marketing Agency",
+    template: "%s | NeoSoftix",
   },
   description:
-    "NeoSoftix is a digital growth agency delivering custom web development, mobile apps, digital marketing, software engineering, and AWS cloud solutions for global brands.",
+    "NeoSoftix builds fast websites, mobile apps, custom software and AWS cloud solutions, plus digital marketing that turns visitors into paying customers.",
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
   keywords: [
     "NeoSoftix",
     "web development company",
@@ -26,24 +31,24 @@ export const metadata: Metadata = {
     "software development",
     "AWS cloud solutions",
   ],
-  alternates: {
-    canonical: "/",
-  },
+  // Fallbacks only: every page sets its own canonical, Open Graph and Twitter
+  // metadata through createMetadata() in src/lib/seo.ts.
   openGraph: {
     type: "website",
     url: siteUrl,
-    siteName: "NeoSoftix",
-    title: "NeoSoftix — Ideas to Impact",
+    siteName,
+    locale: "en_US",
+    title: "NeoSoftix | Web, App & Digital Marketing Agency",
     description:
-      "All-in-one digital growth platform to create, manage, and publish content across multiple channels.",
-    images: [{ url: "/logo.png" }],
+      "NeoSoftix builds fast websites, mobile apps, custom software and AWS cloud solutions, plus digital marketing that turns visitors into paying customers.",
+    images: [{ url: ogImageUrl("Ideas to Impact"), width: 1200, height: 630, alt: siteName }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NeoSoftix — Ideas to Impact",
+    title: "NeoSoftix | Web, App & Digital Marketing Agency",
     description:
-      "All-in-one digital growth platform to create, manage, and publish content across multiple channels.",
-    images: ["/logo.png"],
+      "NeoSoftix builds fast websites, mobile apps, custom software and AWS cloud solutions, plus digital marketing that turns visitors into paying customers.",
+    images: [ogImageUrl("Ideas to Impact")],
   },
   robots: {
     index: true,
@@ -51,6 +56,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
   verification: {

@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import AboutStory from "@/components/AboutStory";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 
-export const metadata: Metadata = {
-  title: "About Us — NeoSoftix | Innovative Digital Solutions",
+export const metadata: Metadata = createMetadata({
+  title: "About NeoSoftix | Our Story, Team & Mission",
   description:
-    "Learn about NeoSoftix. We build scalable software, web engineering platforms, mobile apps, and digital growth strategies for global brands.",
-  alternates: {
-    canonical: "/about",
-  },
-};
+    "Meet NeoSoftix: engineers, designers and growth strategists building scalable software, websites and mobile apps for businesses around the world.",
+  path: "/about",
+  ogTitle: "Architecting Digital Products & Scalable Solutions",
+  ogLabel: "About Us",
+});
 
 export default function AboutPage() {
   return (

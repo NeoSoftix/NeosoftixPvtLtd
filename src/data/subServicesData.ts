@@ -10,6 +10,10 @@ export type SubService = {
   badge: string;
   title: string;
   tagline: string;
+  /** SEO <title>, ideally under 60 characters. */
+  metaTitle: string;
+  /** SEO meta description, ideally 140-160 characters. */
+  metaDescription: string;
   description: string;
   heroStats: { number: string; label: string }[];
   techStack: string[];
@@ -26,6 +30,9 @@ export const subServicesData: Record<string, SubService> = {
     badge: "MOBILE APP DEVELOPMENT",
     title: "Mobile App Development",
     tagline: "iOS, Android & Cross-Platform Solutions",
+    metaTitle: "Mobile App Development Company | iOS & Android | NeoSoftix",
+    metaDescription:
+      "Custom iOS, Android and cross-platform apps built with React Native and Flutter. Fast, secure and App Store ready. Launch a mobile app your users love.",
     description:
       "Build a tailored iOS, Android, or cross-platform app — crafted for performance, accuracy, and cost-efficiency. We engineer fluid native user experiences with offline caching and enterprise security.",
     heroStats: [
@@ -88,6 +95,9 @@ export const subServicesData: Record<string, SubService> = {
     badge: "WEB DEVELOPMENT",
     title: "Web Development",
     tagline: "Custom High-Converting Web Platforms",
+    metaTitle: "Web Development Company | Custom Websites | NeoSoftix",
+    metaDescription:
+      "Fast, SEO-ready custom websites and web apps built with Next.js, React and TypeScript, designed to turn visitors into leads and loyal customers.",
     description:
       "Our custom web design and development services are crafted to suit your specific business requirements. We build fast, responsive, and SEO-optimized web applications.",
     heroStats: [
@@ -150,6 +160,9 @@ export const subServicesData: Record<string, SubService> = {
     badge: "DIGITAL MARKETING",
     title: "Digital Marketing",
     tagline: "Performance Strategies & Revenue Growth",
+    metaTitle: "Digital Marketing Agency | SEO, Google & Meta Ads | NeoSoftix",
+    metaDescription:
+      "Grow traffic, leads and revenue with data-driven SEO, Google Ads, Meta Ads and conversion funnels, tracked end to end in Google Analytics 4.",
     description:
       "Elevate your business with advanced digital strategies that boost performance, creativity, and growth potential. Data-backed targeted campaigns designed for high ROI.",
     heroStats: [
@@ -212,6 +225,9 @@ export const subServicesData: Record<string, SubService> = {
     badge: "SOFTWARE DEVELOPMENT",
     title: "Software Development",
     tagline: "Tailored Business Automation & Systems",
+    metaTitle: "Custom Software Development Company | NeoSoftix",
+    metaDescription:
+      "Tailored business software, automation and scalable backend systems built with Python and Node.js to streamline operations and grow with your company.",
     description:
       "Create tailored software solutions to solve unique business needs and enhance overall efficiency. Bespoke SaaS products, automated workflows, and custom APIs.",
     heroStats: [
@@ -274,6 +290,9 @@ export const subServicesData: Record<string, SubService> = {
     badge: "AWS CLOUD SOLUTIONS",
     title: "AWS Solutions",
     tagline: "Cloud Innovation, Speed & Scalability",
+    metaTitle: "AWS Cloud Solutions & Migration Services | NeoSoftix",
+    metaDescription:
+      "Secure, scalable AWS architecture, cloud migration, Docker, Kubernetes and CI/CD pipelines that keep your applications fast, reliable and cost-efficient.",
     description:
       "Enable your organization to innovate faster, adapt quickly to change, and scale efficiently with fully tailored AWS cloud solutions, DevOps pipelines, and serverless scaling.",
     heroStats: [

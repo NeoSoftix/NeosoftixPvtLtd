@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 import PageHero from "@/components/PageHero";
 import LegalContent from "@/components/LegalContent";
 import { termsConditionsSections } from "@/data/termsConditionsData";
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions — NeoSoftix",
+export const metadata: Metadata = createMetadata({
+  title: "Terms & Conditions | NeoSoftix",
   description:
-    "Read the NeoSoftix Terms & Conditions governing the use of our website and services.",
-  alternates: {
-    canonical: "/terms-conditions",
-  },
-};
+    "Read the NeoSoftix Terms & Conditions that govern the use of our website and the web, app, software and marketing services we provide.",
+  path: "/terms-conditions",
+  ogLabel: "Legal",
+});
 
 export default function TermsConditionsPage() {
   return (
