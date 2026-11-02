@@ -175,7 +175,9 @@ export default function Portfolio() {
                           </svg>
                         </span>
                         <h3 className="text-xl sm:text-2xl font-bold text-[#0f1729] tracking-tight group-hover:text-blue-600 transition-colors">
-                          {project.title}
+                          <a {...linkProps} className="cursor-pointer hover:text-blue-600 transition-colors">
+                            {project.title}
+                          </a>
                         </h3>
                       </div>
 
