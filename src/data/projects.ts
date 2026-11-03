@@ -15,7 +15,7 @@ type Client = {
 // Single source for every client logo used across the site.
 export const clients = {
   namasteCrailsheim: { name: "Namaste Crailsheim", logo: "/namaste.png", bannerBg: "bg-[#2a0a0c]", industry: "Indian Restaurant", url: "https://namastecrailsheim.de/" },
-  namasteNuremberg: { name: "Namaste Nuremberg", logo: "/namaste.png", bannerBg: "bg-[#2a0a0c]", industry: "Indian Restaurant", url: "https://www.namaste-nuremberg.de/" },
+  namasteNuremberg: { name: "Namaste Nuremberg", logo: "/namaste.png", bannerBg: "bg-[#2a0a0c]", industry: "Indian Restaurant", url: "https://namaste-nuremberg.de/" },
   bellaPizza: { name: "Bella Pizza", logo: "/bellapizza.png", bannerBg: "bg-[#fff4ef]", industry: "Pizzeria", url: "https://bellapizzaneumarkt.de/" },
   supersure: { name: "SuperSure", logo: "/supersure.webp", bannerBg: "bg-[#7c1d1d]", industry: "Consumer Brands", url: "https://supersure.in/" },
   pizzeria: { name: "Pizzeria Da Luigi", logo: "/pizzeria.webp", bannerBg: "bg-[#1f0b0d]", industry: "Italian Restaurant", darkLogo: true, url: "https://www.pizzeriadaluigiregensburg.de/" },
