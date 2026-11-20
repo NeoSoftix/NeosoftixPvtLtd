@@ -66,6 +66,129 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: `${siteUrl}/`,
+      name: "NeoSoftix",
+      alternateName: [
+        "NeoSoftix Pvt. Ltd.",
+        "NeoSoftix",
+        "NeoSoftix Web, App & Digital Marketing Agency",
+      ],
+      description:
+        "Web development, mobile app development, custom software, AWS cloud solutions, and digital marketing agency.",
+      inLanguage: "en",
+      publisher: {
+        "@id": `${siteUrl}/#organization`,
+      },
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "NeoSoftix",
+      alternateName: [
+        "NeoSoftix Pvt. Ltd.",
+        "NeoSoftix Web, App & Digital Marketing Agency",
+      ],
+      url: `${siteUrl}/`,
+      logo: `${siteUrl}/logo.png`,
+      image: `${siteUrl}/logo.png`,
+      description:
+        "NeoSoftix delivers web development, mobile app development, custom software development, AWS cloud services, and performance digital marketing for global businesses.",
+      email: "info@neosoftix.com",
+      telephone: "+918557062045",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "A-817, 8th Floor, Bestech Business Tower",
+        addressLocality: "Mohali",
+        addressRegion: "Punjab",
+        postalCode: "160062",
+        addressCountry: "IN",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: "30.675832",
+        longitude: "76.740277",
+      },
+      hasMap:
+        "https://maps.google.com/?q=A-817,+8th+Floor,+Bestech+Business+Tower,+Mohali,+160062",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: "+918557062045",
+          email: "info@neosoftix.com",
+          contactType: "customer service",
+          availableLanguage: ["English"],
+        },
+      ],
+      areaServed: [
+        {
+          "@type": "Country",
+          name: "India",
+        },
+        {
+          "@type": "Country",
+          name: "Germany",
+        },
+        {
+          "@type": "Place",
+          name: "Europe",
+        },
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Digital & Software Services",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Mobile App Development",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Web Development",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Digital Marketing",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "Software Development",
+            },
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: "AWS Cloud Solutions",
+            },
+          },
+        ],
+      },
+      sameAs: [
+        "https://www.facebook.com/neosoftix/",
+        "https://www.instagram.com/neo_softix/",
+        "https://www.linkedin.com/company/neosoftix/",
+      ],
+    },
+  ],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -73,6 +196,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-[#050b16]" suppressHydrationWarning>
         <Header />
         {children}
